@@ -19,15 +19,24 @@ open class Toast {
     
     private var box = [Bread]()
     
+    
+    
+    
+    /// Present a toast view
+    /// - Parameters:
+    ///   - text: content to show
+    ///   - position: top, bottom or center
+    ///   - padding: use with position
+    ///   - duration: default is 1 second
     open func make(_ text: String,
-              position: ToastPosition = .bottom,
-              padding: CGFloat = 100,
-              textColor: UIColor = .init(white: 0.95, alpha: 1),
-              backgroundColor: UIColor = .init(white: 0.05, alpha: 0.85),
-              font: UIFont = .systemFont(ofSize: 16, weight: .medium),
-              delay: TimeInterval = 1) {
+                   position: ToastPosition = .bottom,
+                   padding: CGFloat = 100,
+                   duration: TimeInterval = 1,
+                   textColor: UIColor = .init(white: 0.95, alpha: 1),
+                   backgroundColor: UIColor = .init(white: 0.05, alpha: 0.85),
+                   font: UIFont = .systemFont(ofSize: 16, weight: .medium)) {
         
-        let bread = Bread(text, position, padding, textColor, backgroundColor, font, delay)
+        let bread = Bread(text, position, padding, textColor, backgroundColor, font, duration)
         
         if box.isEmpty {
             box.append(bread)
@@ -48,8 +57,7 @@ open class Toast {
         UIView.animate(withDuration: 0.5, animations: {
             label.alpha = 1
         }) { _ in
-            UIView.animate(withDuration: 0.5, delay: bread.delay, animations: {
-                print(bread.delay)
+            UIView.animate(withDuration: 0.5, delay: bread.duration, animations: {
                 label.alpha = 0
             }) { _ in
                 label.removeFromSuperview()
@@ -69,14 +77,14 @@ open class Toast {
 
 fileprivate struct Bread {
     
-    internal init(_ text: String, _ position: Toast.ToastPosition, _ padding: CGFloat, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ delay: TimeInterval) {
+    internal init(_ text: String, _ position: Toast.ToastPosition, _ padding: CGFloat, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ duration: TimeInterval) {
         self.text = text
         self.position = position
         self.padding = padding
         self.textColor = textColor
         self.backgroundColor = backgroundColor
         self.font = font
-        self.delay = delay
+        self.duration = duration
     }
     
     let text: String
@@ -85,7 +93,7 @@ fileprivate struct Bread {
     let textColor: UIColor
     let backgroundColor: UIColor
     let font: UIFont
-    let delay: TimeInterval
+    let duration: TimeInterval
 }
 
 
