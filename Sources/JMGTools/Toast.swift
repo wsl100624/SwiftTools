@@ -9,7 +9,7 @@ import UIKit
 
 open class Toast {
     
-    public let shared = Toast()
+    public static let shared = Toast()
     
     public enum ToastPosition {
         case top
