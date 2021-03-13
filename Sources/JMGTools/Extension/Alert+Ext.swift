@@ -9,7 +9,7 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlert(title: String, message: String = "", buttonTitle: String = "OK", onOK: ((UIAlertAction) -> Swift.Void)? = nil) {
+    open func showAlert(title: String, message: String = "", buttonTitle: String = "OK", onOK: ((UIAlertAction) -> Swift.Void)? = nil) {
         
         DispatchQueue.main.async(execute: {
 
@@ -21,7 +21,7 @@ extension UIViewController {
         })
     }
 
-    func showAlertYesNo (title: String = "", message: String?, yesButtonTitle: String = "Yes", cancelButtonTitle: String = "Cancel", onYes: ((UIAlertAction) -> Swift.Void)? = nil, onNo: ((UIAlertAction) -> Swift.Void)? = nil){
+    open func showAlertYesNo (title: String = "", message: String?, yesButtonTitle: String = "Yes", cancelButtonTitle: String = "Cancel", onYes: ((UIAlertAction) -> Swift.Void)? = nil, onNo: ((UIAlertAction) -> Swift.Void)? = nil){
         
         DispatchQueue.main.async(execute: {
 

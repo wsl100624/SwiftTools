@@ -9,7 +9,7 @@ import UIKit
 
 
 @available(iOS 13.0, *)
-open class RefreshView: UIView {
+open class ErrorView: UIView {
     
     var errorString: String
     var labelColor: UIColor
