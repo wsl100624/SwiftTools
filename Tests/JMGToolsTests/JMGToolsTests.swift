@@ -1,4 +1,5 @@
 import XCTest
+import UIKit
 @testable import JMGTools
 
 final class JMGToolsTests: XCTestCase {
@@ -7,6 +8,10 @@ final class JMGToolsTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
 //        XCTAssertEqual(JMGTools().text, "Hello, World!")
+        
+        let timeInterval = Date().addingTimeInterval(123123).timeIntervalSince(Date())
+        let formatedInterval = timeInterval.formatSeconds()
+        print(formatedInterval.H)
     }
 
     static var allTests = [

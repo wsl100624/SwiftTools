@@ -10,6 +10,16 @@ import UIKit
 @available(iOS 11.0, tvOS 11.0, *)
 extension UIView {
     
+    @discardableResult
+    open func stack(_ views: UIView..., spacing: CGFloat = 0, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill) -> UIStackView {
+        return _stack(.vertical, views: views, spacing: spacing, alignment: alignment, distribution: distribution)
+    }
+    
+    @discardableResult
+    open func hstack(_ views: UIView..., spacing: CGFloat = 0, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill) -> UIStackView {
+        return _stack(.horizontal, views: views, spacing: spacing, alignment: alignment, distribution: distribution)
+    }
+    
     fileprivate func _stack(_ axis: NSLayoutConstraint.Axis = .vertical, views: [UIView], spacing: CGFloat = 0, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill) -> UIStackView {
         let stackView = UIStackView(arrangedSubviews: views)
         stackView.axis = axis
@@ -22,13 +32,22 @@ extension UIView {
     }
     
     @discardableResult
-    open func stack(_ views: UIView..., spacing: CGFloat = 0, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill) -> UIStackView {
-        return _stack(.vertical, views: views, spacing: spacing, alignment: alignment, distribution: distribution)
+    open func stackView(_ views: UIView..., spacing: CGFloat = 0, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill) -> UIStackView {
+        return _stackView(.vertical, views: views, spacing: spacing, alignment: alignment, distribution: distribution)
     }
     
     @discardableResult
-    open func hstack(_ views: UIView..., spacing: CGFloat = 0, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill) -> UIStackView {
-        return _stack(.horizontal, views: views, spacing: spacing, alignment: alignment, distribution: distribution)
+    open func hstackView(_ views: UIView..., spacing: CGFloat = 0, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill) -> UIStackView {
+        return _stackView(.horizontal, views: views, spacing: spacing, alignment: alignment, distribution: distribution)
+    }
+    
+    fileprivate func _stackView(_ axis: NSLayoutConstraint.Axis = .vertical, views: [UIView], spacing: CGFloat = 0, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill) -> UIStackView {
+        let stackView = UIStackView(arrangedSubviews: views)
+        stackView.axis = axis
+        stackView.spacing = spacing
+        stackView.alignment = alignment
+        stackView.distribution = distribution
+        return stackView
     }
     
     @discardableResult
@@ -73,10 +92,3 @@ extension UIEdgeInsets {
     }
 }
 
-extension UIImageView {
-    convenience public init(image: UIImage?, contentMode: UIView.ContentMode = .scaleAspectFill) {
-        self.init(image: image)
-        self.contentMode = contentMode
-        self.clipsToBounds = true
-    }
-}
