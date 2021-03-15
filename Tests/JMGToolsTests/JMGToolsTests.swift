@@ -11,7 +11,7 @@ final class JMGToolsTests: XCTestCase {
         
         let timeInterval = Date().addingTimeInterval(123123).timeIntervalSince(Date())
         let formatedInterval = timeInterval.formatSeconds()
-        print(formatedInterval.H)
+        print(formatedInterval.hr)
     }
 
     static var allTests = [
