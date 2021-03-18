@@ -21,7 +21,7 @@ public enum Anchor {
     case width(_ constant: CGFloat)
 }
 
-// Reference Video: https://youtu.be/iqpAP7s3b-8
+
 @available(iOS 11.0, tvOS 11.0, *)
 extension UIView {
     
