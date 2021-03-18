@@ -7,6 +7,7 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 open class JMGLoadingButton: UIButton {
     
     open var indicatorColor: UIColor = .white
@@ -32,10 +33,9 @@ open class JMGLoadingButton: UIButton {
     
     open func hideLoading() {
         DispatchQueue.main.async(execute: {
-            self.setTitleColor(originalTitleColor, for: .normal)
+            self.setTitleColor(self.originalTitleColor, for: .normal)
             self.activityIndicator.stopAnimating()
             self.activityIndicator.removeFromSuperview()
         })
     }
 }
-
