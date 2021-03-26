@@ -9,7 +9,7 @@ import UIKit
 
 extension UIDevice {
     
-    open func isModel(_ name: String) -> Bool {
+    static open func isModel(_ name: String) -> Bool {
         
         let modelName: String = {
             var systemInfo = utsname()
@@ -93,7 +93,11 @@ extension UIDevice {
             return mapToDevice(identifier: identifier)
         }()
         
-        return modelName == name
+        if modelName != name {
+            return modelName.contains(name)
+        } else {
+            return true
+        }
     }
     
     
