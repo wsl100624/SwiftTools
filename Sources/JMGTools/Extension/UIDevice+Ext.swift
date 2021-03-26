@@ -9,7 +9,7 @@ import UIKit
 
 extension UIDevice {
     
-    static func isModel(_ name: String) -> Bool {
+    open func isModel(_ name: String) -> Bool {
         
         let modelName: String = {
             var systemInfo = utsname()
