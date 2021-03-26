@@ -7,7 +7,7 @@ final class JMGToolsTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-//        XCTAssertEqual(JMGTools().text, "Hello, World!")
+//        XCTAssertEqual(UIDevice.isModel("iPhone 12"), false)
         
         let timeInterval = Date().addingTimeInterval(123123).timeIntervalSince(Date())
         let formatedInterval = timeInterval.formatSeconds()
