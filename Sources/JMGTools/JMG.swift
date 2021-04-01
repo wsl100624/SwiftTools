@@ -14,7 +14,7 @@ public let Toaster = Toast.shared
 
 
 
-// ----> How to write documents <------
+// ----> Tips: How to write documents <------
 
 /**
  This is your User documentation.
