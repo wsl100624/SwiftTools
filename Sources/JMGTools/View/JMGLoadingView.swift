@@ -70,12 +70,12 @@ open class JMGLoadingView: UIView {
     
     // MARK: - Action
     
-    func run() {
+    open func run() {
         isHidden = false
         loadingIndicator.startAnimating()
     }
     
-    func stop() {
+    open func stop() {
         isHidden = true
         loadingIndicator.stopAnimating()
     }
