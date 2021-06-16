@@ -19,7 +19,7 @@ open class JMGLoadingView: UIView {
     var backgroundStyle: BackgroundStyle
     var text: String
     
-    lazy var textLabel = UILabel(font: .preferredFont(forTextStyle: .callout), textColor: .init(white: 1, alpha: 0.6), textAlignment: .center, numberOfLines: 0)
+    lazy var textLabel = UILabel(font: .preferredFont(for: .callout, weight: .semibold), textColor: .init(white: 1, alpha: 0.6), textAlignment: .center, numberOfLines: 0)
     lazy var loadingIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: .large)
         view.hidesWhenStopped = true
