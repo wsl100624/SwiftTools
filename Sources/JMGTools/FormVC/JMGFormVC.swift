@@ -38,6 +38,7 @@ open class JMGFormVC: UIViewController {
         fatalError("You most likely have a Storyboard controller that uses this class, please remove any instance of JMGFormController or sublasses of this component from your Storyboard files.")
     }
     
+    @available(iOSApplicationExtension, unavailable)
     override open func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -77,11 +78,13 @@ open class JMGFormVC: UIViewController {
         return view.frame.height - formContainerStackView.frame.maxY
     }
     
+    @available(iOSApplicationExtension, unavailable)
     fileprivate func setupKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    @available(iOSApplicationExtension, unavailable)
     @objc fileprivate func handleKeyboardShow(notification: Notification) {
         guard let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         let keyboardFrame = value.cgRectValue

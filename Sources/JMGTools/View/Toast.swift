@@ -28,6 +28,8 @@ open class Toast {
     ///   - position: top, bottom or center
     ///   - padding: use with position
     ///   - duration: default is 1 second
+    
+    @available(iOSApplicationExtension, unavailable)
     open func make(_ text: String,
                    position: ToastPosition = .bottom,
                    padding: CGFloat = 100,
@@ -46,6 +48,7 @@ open class Toast {
         }
     }
     
+    @available(iOSApplicationExtension, unavailable)
     private func makeToast() {
         
         guard let window = UIApplication.shared.keyWindow else { return }
@@ -120,6 +123,7 @@ fileprivate class ToastLabel: UILabel {
         alpha = 0
     }
     
+    @available(iOSApplicationExtension, unavailable)
     override func layoutSubviews() {
         guard let window = UIApplication.shared.keyWindow else { return }
         
