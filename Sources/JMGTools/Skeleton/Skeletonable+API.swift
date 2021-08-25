@@ -14,13 +14,15 @@ public protocol Skeletonable {
 
 public extension Skeletonable where Self: UIViewController {
     
+    /// Use in viewDidAppear
     func showSkeleton() {
         let skeletonLayer = createSkeletonLayer()
         searchViews(in: view).forEach {
             setupSkeletonEffect($0, skeletonLayer)
         }
     }
-
+    
+    /// Use when the actually data is ready
     func hideSkeleton() {
         searchViews(in: view).forEach {
             $0.layer.sublayers?.removeAll {
